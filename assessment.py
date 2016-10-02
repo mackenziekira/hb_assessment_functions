@@ -28,7 +28,11 @@ print(calculate_total_cost('DE', 100))
 # 1. (a) Write a function, `is_berry()`, which takes a fruit name as a string
 #        and returns a boolean if the fruit is a "strawberry", "cherry", or 
 #        "blackberry".
-
+def is_berry(name):
+    """takes in a fruit name as a string and returns boolean if fruit is a strawberry, cherry, or blackberry
+    """
+    return name == "strawberry" or name == "cherry" or name == "blackberry"
+print(is_berry('strawberry'))
 #    (b) Write another function, shipping_cost(), which calculates shipping cost
 #        by taking a fruit name as a string, calling the `is_berry()` function 
 #        within the `shipping_cost()` function and returns `0` if ``is_berry()
@@ -46,6 +50,7 @@ print(calculate_total_cost('DE', 100))
 #        `is_hometown()` and `full_name()` and prints "Hi, 'full name here',
 #        we're from the same place!", or "Hi 'full name here', where are you 
 #        from?" depending on what `is_hometown()` evaluates to.
+
 
 #####################################################################
 
