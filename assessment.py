@@ -16,11 +16,16 @@
 def calculate_total_cost(state_abbreviation, cost, tax = .05):
     """Returns total cost of an item, given a state abbreviation, the item cost, and the state tax rate
     """ 
+
     if state_abbreviation == 'CA':
         tax = .07
-    return cost + cost * tax
+    try:    
+        return cost + cost * tax
+    except TypeError:
+        return "cost and tax need to be numbers."
 
-#print calculate_total_cost('DE', 100)
+
+#print calculate_total_cost('DE', '100')
 
 #####################################################################
 # PART TWO
@@ -64,7 +69,10 @@ def is_hometown(town):
 def full_name(first, last):
     """takes a first and last name as arguments and returns the concatenation of the two names in one string
     """
-    return first + " " + last
+    try:
+        return first + " " + last
+    except TypeError:
+        return "function requires two strings as input"
 
 #print full_name('m', 'd')
 #
@@ -81,7 +89,7 @@ def hometown_greeting(hometown, first, last):
     else:
         print "Hi {} {}, where is {}?".format(first, last, hometown)
 
-#hometown_greeting('Poomac', 'm', 'd')
+#hometown_greeting('Poomac', 'm', 5)
 
 
 #####################################################################
@@ -114,9 +122,12 @@ addfive = increment(20)
 def append_number(number, lst):
     """appends a given number to a given list of numbers
     """
-    lst.append(number)
-    return lst 
+    try:
+        lst.append(number)
+        return lst 
+    except AttributeError:
+        return "second argument must be a list"
 
-#print append_number(5, [8,9,10])
+#print append_number(5, [7,8])
 
 #####################################################################
