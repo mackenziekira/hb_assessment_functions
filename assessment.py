@@ -94,17 +94,20 @@ def hometown_greeting(hometown, first, last):
 def increment(x = 1):
     """adds a given integer together with my chosen y integer
     """
-    def inner_increment(y = 1):
+    def inner_increment(y):
         return x + y
-    return inner_increment(20)
+    return inner_increment(5)
 
 #print increment()
 
 # 2. Call the function ``increment()`` with x = 5. Assign what is returned to a variable name, addfive. Call 
 #    addfive with y = 5. Call again with y = 20.
 addfive = increment(5)
-addfive = increment(5)
-print addfive
+#print addfive
+addfive = increment(20)
+#print addfive
+
+#question: since there's no way to change the inner increment without access to the program, would it not make more sense to make y 5 and change x to be 5 and 20, above?
 
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
@@ -114,6 +117,6 @@ def append_number(number, lst):
     lst.append(number)
     return lst 
 
-print append_number(5, [8,9,10])
+#print append_number(5, [8,9,10])
 
 #####################################################################
