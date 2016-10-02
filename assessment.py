@@ -12,7 +12,15 @@
 #    Your function should return the total cost of the item,
 #    including tax.
 
-#    If the user does not provide a tax rate it should default to 5% 
+#    If the user does not provide a tax rate it should default to 5%
+def calculate_total_cost(state_abbreviation, cost, tax = .05):
+    """Returns total cost of an item, given a state abbreviation, the item cost, and the state tax rate
+    """ 
+    if state_abbreviation == 'CA':
+        tax = .07
+    return cost + cost * tax
+
+print(calculate_total_cost('DE', 100))
 
 #####################################################################
 # PART TWO
