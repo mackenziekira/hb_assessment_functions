@@ -112,18 +112,28 @@ def print_sign(integer):
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and returns a
 #    boolean (True or False), depending on whether the number
 #    is evenly divisible by 3.
+def is_divisible_by_three(integer):
+    """Returns a boolean depending on whether a given integer is evenly divisible by 3
+    """
+    return integer % 3 == 0
 
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string and
 #    returns the number of spaces.
-
+def num_spaces(sentence):
+    """Returns the number of spaces in a given sentence
+    """
+    return len(sentence.split(" "))-1
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price and a
 #    tip percentage. It should return the total amount paid
 #    (price + price * tip). **However:** passing in the tip
 #    percentage should be optional; if not given, it should
 #    default to 15%.
-
+def total_meal_price(price, tip_percentage = .15):
+    """Given a meal price and a tip percentage, returns the total amount paid. If not given a tip percentage, defaults to 15%
+    """
+    return price + price * tip_percentage 
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
 #    returns two pieces of information as strings ---
@@ -134,6 +144,29 @@ def print_sign(integer):
 #    on a number and unpack what is returned into two
 #    variables --- sign and parity (whether it's even or odd).
 #    Print sign and parity.
+def sign_and_parity(integer):
+    """Takes and integer and returns a list of if that integer is positive or negative, and even or odd.
+    """
+    result = []
+
+    if integer % 2 == 0:
+        result.append("Even")
+    else:
+        result.append("Odd")
+
+    if integer > 0:
+        result.append("Positive")
+    elif integer < 0:
+        result.append("Negative")
+    elif integer == 0:
+        result.append("None")
+
+    return result
+
+result = sign_and_parity(47)
+parity = result[0]
+sign = result[1]
+print sign, parity
 
 
 ################################################################################
@@ -144,6 +177,11 @@ def print_sign(integer):
 #    job title defaults to "Engineer" if a job title is not passed in.
 #    Return the person's title and name in one string.
 
+def full_title(name, job_title = "Engineer"):
+    """Takes a name and job title (optional), returning both in a string
+    """
+    return job_title + " " + name
+
 # 2. Given a recipient name & job title and a sender name,
 #    print the following letter:
 #
@@ -152,6 +190,10 @@ def print_sign(integer):
 #
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+def write_letter(recipient_name, recipient_job_title, sender_name):
+    """Prints a greeting, given a recipient name, sender name, and recipient job title (optional)
+    """
+    print "Dear {}, I think you are amazing! Sincerely, {}".format(full_title(recipient_name, recipient_job_title), sender_name)
 
 
 #####################################################################
