@@ -92,7 +92,7 @@ def repeat_string(string, integer):
     """Takes a string and an integer and prints the string that many times.
     """
 
-    print "".join([string for item in range(integer)])
+    print "".join([string for item in xrange(integer)])
 
 # 5. Write a function called 'print_sign' that takes an integer and prints "Higher
 #    than 0" if higher than zero and "Lower than 0" if lower
@@ -133,7 +133,13 @@ def num_spaces(sentence):
 def total_meal_price(price, tip_percentage = .15):
     """Given a meal price and a tip percentage, returns the total amount paid. If not given a tip percentage, defaults to 15%
     """
-    return price + price * tip_percentage 
+    if tip_percentage >= 0 and tip_percentage < 1:
+        try:
+            return price + price * tip_percentage 
+        except ValueError:
+            return "please enter a number for meal price"
+    else:
+        return "are you sure you gave them that much tip? please enter tip as a decimal conveying the percentage"
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
 #    returns two pieces of information as strings ---
@@ -148,11 +154,13 @@ def sign_and_parity(integer):
     """Takes and integer and returns a list of if that integer is positive or negative, and even or odd.
     """
     result = []
-
-    if integer % 2 == 0:
-        result.append("Even")
-    else:
-        result.append("Odd")
+    try:
+        if integer % 2 == 0:
+            result.append("Even")
+        else:
+            result.append("Odd")
+    except TypeError:
+        return "please enter a valid integer"
 
     if integer > 0:
         result.append("Positive")
@@ -163,7 +171,7 @@ def sign_and_parity(integer):
 
     return result
 
-result = sign_and_parity(47)
+result = sign_and_parity(-47)
 parity = result[0]
 sign = result[1]
 print sign, parity
